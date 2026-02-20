@@ -3,7 +3,7 @@
     "path": "~/Code/shiny_test/app.R",
     "project_path": "app.R",
     "type": "r_source",
-    "hash": "2531788143",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1770971930898.0,
@@ -11,7 +11,9 @@
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
-        "Source": "Source"
+        "Source": "Source",
+        "cursorPosition": "48,0",
+        "scrollLine": "32"
     },
     "folds": "",
     "lastKnownWriteTime": 1758586160,
