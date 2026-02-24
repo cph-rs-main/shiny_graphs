@@ -2,3 +2,18 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# renv cache (large package files - do not commit)
+renv/library/
+renv/staging/
+renv/python/
+renv/sandbox/
+renv/cellar/
+
+# Temporary files
+renv/.cache/
+.Rprofile-renv
+
+# But KEEP these (do not ignore):
+# renv.lock
+# renv/activate.R
