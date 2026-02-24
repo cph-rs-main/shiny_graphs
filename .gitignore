@@ -10,6 +10,7 @@ renv/python/
 renv/sandbox/
 renv/cellar/
 
+docs/
 docs/app.json
 
 # Temporary files
