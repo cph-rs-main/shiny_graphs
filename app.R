@@ -108,7 +108,7 @@ generate_good_data <- function(seed_val = 123) {
   
   # Add specific flaw examples like 2,4,4,4
   data[9, ] <- c(2, 4, 4, 4)
-  data[19, ] <- c(3, 5, 5, 4)
+  data[19, ] <- c(3, 5, 5, 5)
   data[34, ] <- c(2, 3, 5, 5)
   data[42, ] <- c(4, 4, 2, 5)
   data[51, ] <- c(2, 5, 4, 4)
