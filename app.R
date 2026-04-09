@@ -158,7 +158,7 @@ generate_bad_ka_data <- function(seed_val = 456) {
   }
   
   # Add some flaws
-  data[6, ] <- c(1, 2, 5, 4)
+  data[6, ] <- c(1, 3, 5, 5)
   data[16, ] <- c(2, 1, 4, 5)
   data[31, ] <- c(2, 4, 4, 4)
   data[45, ] <- c(1, 2, 4, 5)
@@ -166,6 +166,58 @@ generate_bad_ka_data <- function(seed_val = 456) {
   
   return(data)
 }
+
+generate_good_gwet_data <- function(seed_val = 456) {
+  set.seed(seed_val)
+  
+  # True scores for items
+  true_scores <- sample(1:5, 60, replace = TRUE, prob = c(0.15, 0.25, 0.30, 0.20, 0.10))
+  
+  data <- data.frame(
+    Rater1 = integer(60),
+    Rater2 = integer(60),
+    Rater3 = integer(60),
+    Rater4 = integer(60)
+  )
+  
+  for(i in 1:60) {
+    true <- true_scores[i]
+    
+    # Strict raters: map to 1-2 range
+    if(true <= 2) {
+      data$Rater1[i] <- 1
+      data$Rater2[i] <- 1
+    } else if(true == 3) {
+      data$Rater1[i] <- sample(1:2, 1)
+      data$Rater2[i] <- sample(1:2, 1)
+    } else {
+      data$Rater1[i] <- 2
+      data$Rater2[i] <- 2
+    }
+    
+    # Lenient raters: map to 4-5 range
+    if(true <= 2) {
+      data$Rater3[i] <- 4
+      data$Rater4[i] <- 4
+    } else if(true == 3) {
+      data$Rater3[i] <- sample(4:5, 1)
+      data$Rater4[i] <- sample(4:5, 1)
+    } else {
+      data$Rater3[i] <- 5
+      data$Rater4[i] <- 5
+    }
+  }
+  
+  # Add some flaws
+  data[6, ] <- c(1, 3, 5, 5)
+  data[16, ] <- c(2, 1, 4, 5)
+  data[31, ] <- c(2, 4, 4, 4)
+  data[45, ] <- c(1, 2, 4, 5)
+  data[55, ] <- c(2, 2, 5, 4)
+  
+  return(data)
+}
+
 
 # ============================================
 # SERVER LOGIC
